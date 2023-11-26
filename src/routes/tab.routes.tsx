@@ -4,8 +4,11 @@ import { Perfil } from "../screens/Perfil/perfil";
 import { Procurar } from "../screens/Procurar/procurar";
 import { Mensagem } from "../screens/Mensagem/mensagem";
 import { Mais } from "../screens/Mais/Mais";
+import { Login } from "../screens/Login";
+import { createStackNavigator } from '@react-navigation/stack';
 
 const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
 
 import { Image } from "react-native";
 import House from "../assets/home.svg";
@@ -15,16 +18,24 @@ import Union from "../assets/union.svg";
 
 export function TabsRoutes() {
   return (
-    <Tab.Navigator
-      screenOptions={{
-        headerShown: false,
-        tabBarStyle: {
-          height: 65,
-          backgroundColor: "#d265fc",
-        },
-        tabBarShowLabel: false,
-      }}
-    >
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen name="Main" options={{ headerShown: false }}>
+        {() => (
+          <Tab.Navigator
+            screenOptions={{
+              tabBarStyle: {
+                height: 65,
+                backgroundColor: '#d265fc',
+              },
+              tabBarShowLabel: false,
+            }}
+          >
+      <Tab.Screen
+        name="Login"
+        component={Login}
+        options={{ headerShown: false }}
+      />
       <Tab.Screen
         options={{
           tabBarIcon: ({ color }) => <House color={color} />,
@@ -69,5 +80,8 @@ export function TabsRoutes() {
         component={Perfil}
       />
     </Tab.Navigator>
+    )}
+    </Stack.Screen>
+    </Stack.Navigator>
   );
 }
