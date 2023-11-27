@@ -43,7 +43,7 @@ export const Login = () => {
           setWrongLogin(true);
         } else {
           setWrongLogin(false);
-          navigation.navigate('Home2' as never);
+          navigation.navigate('Main', { screen: 'Home2' } as never);
         }
       })
       .catch((error) => console.error(error))

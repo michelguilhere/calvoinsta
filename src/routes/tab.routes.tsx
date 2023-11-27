@@ -32,12 +32,8 @@ export function TabsRoutes() {
             }}
           >
       <Tab.Screen
-        name="Login"
-        component={Login}
-        options={{ headerShown: false }}
-      />
-      <Tab.Screen
         options={{
+          headerShown: false,
           tabBarIcon: ({ color }) => <House color={color} />,
         }}
         name="Home2"
@@ -46,6 +42,7 @@ export function TabsRoutes() {
 
       <Tab.Screen
         options={{
+          headerShown: false,
           tabBarIcon: ({ color }) => <Search color={color} />,
         }}
         name="Home"
@@ -54,6 +51,7 @@ export function TabsRoutes() {
 
       <Tab.Screen
         options={{
+          headerShown: false,
           tabBarIcon: ({ color }) => <Union color={color} />,
         }}
         name="Home3"
@@ -61,6 +59,7 @@ export function TabsRoutes() {
       />
       <Tab.Screen
         options={{
+          headerShown: false,
           tabBarIcon: ({ color }) => <Store color={color} />,
         }}
         name="Home4"
